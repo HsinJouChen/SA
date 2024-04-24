@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動態選擇</title>
+</head>
+
+<body>
+  <form><select id="regionSelect" class="w-100 form-control mt-lg-1 mt-md-2">
+      <option>不限地點</option>
+      <option value="1">北部區域</option>
+      <option value="2">中部區域</option>
+      <option value="3">南部區域</option>
+      <option value="4">東部區域</option>
+      <option value="5">外島區域</option>
+    </select>
+
+    <select id="citySelect" class="w-100 form-control mt-lg-1 mt-md-2">
+      <option>請先選擇區域</option>
+    </select>
+  </form>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var regionSelect = document.getElementById("regionSelect");
+      var citySelect = document.getElementById("citySelect");
+
+      // 定義區域對應的縣市列表
+      var citiesByRegion = {
+        "1": ["台北市", "新北市", "基隆市", "桃園市", "新竹市", "新竹縣", "宜蘭縣"],
+        "2": ["台中市", "苗栗縣", "彰化縣", "南投縣", "雲林縣"],
+        "3": ["高雄市", "台南市", "嘉義市", "嘉義縣", "屏東縣"],
+        "4": ["花蓮縣", "台東縣"],
+        "5": ["澎湖縣", "金門縣", "連江縣"]
+      };
+
+      // 監聽區域選擇變化
+      regionSelect.addEventListener("change", function () {
+        var selectedRegion = regionSelect.value;
+        // 清空原有選項
+        citySelect.innerHTML = "";
+        if (selectedRegion === "") {
+          // 如果沒選擇區域，顯示提示
+          var option = document.createElement("option");
+          option.text = "請先選擇區域";
+          citySelect.add(option);
+        } else {
+          // 根據所選區域，動態生成相應的縣市選項
+          citiesByRegion[selectedRegion].forEach(function (city) {
+            var option = document.createElement("option");
+            option.text = city;
+            citySelect.add(option);
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

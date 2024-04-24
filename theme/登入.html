@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>PetHome 登入</title>
+      <link rel="stylesheet" href="註冊登入css/1.css">
+      <link rel="icon" type="image/x-icon" href="images/logo2.png">
+   </head>
+   <style>
+   </style>
+   <body>
+      
+      <div class="wrapper floating-effect">
+         <div class="title">
+            <br>
+            <a href="index.html" target="_self"><img src="images/logo.png" alt="logo" width="" height="60"></a>
+            <h2 style="font-size: 20px;">請輸入帳號密碼登入</h2>
+         </div>
+         <form action="login.php" method="POST">
+            <div class="field">
+               <input type="text" name="username" required>
+               <label>帳號</label>
+            </div>
+            <div class="field">
+               <input type="password" name="password" required>
+               <label>密碼</label>
+            </div>
+            <div class="content">
+               <div class="checkbox">
+                  <input type="checkbox" id="remember-me">
+                  <label for="remember-me">記住我</label>
+               </div>
+               <div class="pass-link">
+                  <a href="#">忘記密碼</a>
+               </div>
+            </div>
+            <div class="field">
+               <input type="submit" value="登入">
+            </div>
+            <div class="signup-link">
+               尚未註冊?<a href="註冊.html">立即註冊</a>
+            </div>
+         </form>
+      </div>
+   </div>
+   </body>
+</html>
